@@ -14,3 +14,4 @@ so in layout.html
 {% endblock %}
 
 for data base we will use xamp we configure xamp in lecture 7
+added data base coneectivity
