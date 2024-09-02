@@ -1,0 +1,16 @@
+here header and footer were copied from index.html file to layout.html file, see last commit code,
+now layout.html file has only body so the body for the page will be taken from the index.html into layout.html
+by extending the layout.html
+
+so in layout.html 
+
+ {% block body %} {% endblock %}
+
+ this statement is added where we want to add the body and in index.html there is code for body so we write that code between
+
+ {% extends "layout.html" %}
+{% block body %}
+
+{% endblock %}
+
+for data base we will use xamp we configure xamp in lecture 7
