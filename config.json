@@ -8,6 +8,9 @@
         "tw_url":"https://twitter.com/codingthunder",
         "gh_url":"https://github.com/codingthunder",
         "blog_name":"Codingthunder",
-        "tagline":"A blog liked by programmers"
+        "tagline":"A blog liked by programmers",
+        "gmail-user": "x",
+        "passwd": "x"
+
     }
 }
