@@ -16,3 +16,4 @@ so in layout.html
 for data base we will use xamp we configure xamp in lecture 7
 added data base coneectivity
 flask mail functionality is added but it won't work until user credential added in json
+in lecture 12 we added support for adding post from the database.

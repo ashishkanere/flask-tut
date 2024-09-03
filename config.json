@@ -10,7 +10,8 @@
         "blog_name":"Codingthunder",
         "tagline":"A blog liked by programmers",
         "gmail-user": "x",
-        "passwd": "x"
+        "passwd": "x",
+        "about_text":"Text for about section of the page will be taken from here"
 
     }
 }
