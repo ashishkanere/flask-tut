@@ -11,7 +11,9 @@
         "tagline":"A blog liked by programmers",
         "gmail-user": "x",
         "passwd": "x",
-        "about_text":"Text for about section of the page will be taken from here"
+        "about_text":"Text for about section of the page will be taken from here",
+        "no_of_posts":3
+
 
     }
 }

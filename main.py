@@ -6,11 +6,23 @@ from datetime import datetime
 import json
 
 
-with open('config.json', 'r') as c:
-    #print(json.load(c))
-    params = json.load(c)["params"]
+# with open('config.json', 'r') as c:
+#     #print(json.load(c))
+#     params = json.load(c)["params"]
 
-local_server =params['local_server']
+# local_server =params['local_server']
+
+
+
+try:
+    with open('config.json', 'r') as c:
+        params = json.load(c)["params"]
+        print(params)  # Print to verify the content
+except Exception as e:
+    print(f"Error loading config.json: {e}")
+
+
+local_server = params.get('local_server', True)
 
 app = Flask(__name__)
 app.config.update(
@@ -45,13 +57,15 @@ class Posts(db.Model):
     title = db.Column(db.String(80),  nullable=False)
     slug = db.Column(db.String(21), nullable=False)
     content = db.Column(db.String(120),  nullable=False)
+    tagline = db.Column(db.String(120),  nullable=False)
     date = db.Column(db.String(12),  nullable=True)
     img_file = db.Column(db.String(12),  nullable=True)
 
 
 @app.route("/")
 def home():
-    return render_template('index.html', params=params)
+    posts = Posts.query.filter_by().all()[0:params["no_of_posts"]]
+    return render_template('index.html', params=params, posts=posts)
 
 @app.route("/about")
 def about():

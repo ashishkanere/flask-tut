@@ -17,3 +17,37 @@ for data base we will use xamp we configure xamp in lecture 7
 added data base coneectivity
 flask mail functionality is added but it won't work until user credential added in json
 in lecture 12 we added support for adding post from the database.
+In lecture 13 we are displaying the posts in our blog and we want that when someone click on one of the posts, it should
+open and display full content of the post. for this we willl use for loop in index.html
+so it will look like this
+        {% for post in posts %}
+                  
+                    <div class="post-preview">
+                        <a href="post/{{post.slug}}">
+                            <h2 class="post-title"> {{ post.title}}</h2>
+                            <h3 class="post-subtitle">{{post.tagline}}</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on {{post.date}}
+                        </p>
+                    </div>
+                    {{post.content[0:143]}}....
+                    {% endfor %}
+                    <!-- Divider-->
+
+in main.py we do following changes
+@app.route("/")
+def home():
+    posts = Posts.query.filter_by().all()
+    return render_template('index.html', params=params, posts=posts)
+
+And then using localhost/phpmyadmin we add new Posts
+but we want to take 5 posts to display so in config.json we add new entry "no_of_posts":5
+so the line changes to 
+posts = Posts.query.filter_by().all()[0:5]
+or 
+posts = Posts.query.filter_by().all()[0:params["no_of_posts"]]
+we can write change json file and change no of posts for eg we can write  "no_of_posts":3
+and three posts will be displayed
