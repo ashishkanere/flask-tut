@@ -68,8 +68,8 @@
             {% set fname = 'assets/img/'+  params['login_image']  %}
             <img class="mb-4" src="{{url_for('static', filename=fname)}}" alt="" width="72" height="72">
             <h1 class="h3 mb-3 font-weight-normal">Admin Login</h1>
-            <label for="uname" class="sr-only">User Email</label>
-            <input type="text" id="uname" name="uname" class="form-control" placeholder="User Email" required autofocus>
+            <label for="uname" class="sr-only">User Name</label>
+            <input type="text" id="uname" name="uname" class="form-control" placeholder="User Name" required autofocus>
             <label for="upass" class="sr-only">Password</label>
             <input type="password" id="upass" name="upass" class="form-control" placeholder="Password" required>
             <div class="checkbox mb-3">

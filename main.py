@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session 
 from flask_mail import Mail
 
 from flask_sqlalchemy import SQLAlchemy
@@ -25,6 +25,9 @@ except Exception as e:
 local_server = params.get('local_server', True)
 
 app = Flask(__name__)
+
+app.secret_key ='war-machine-rox'
+
 app.config.update(
     MAIL_SERVER= 'smtp.gmail.com',
     MAIL_PORT= '456',
@@ -74,11 +77,22 @@ def about():
 
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
+
+    if ('user' in session and session['user']==params['admin_user']):
+        posts = Posts.query.all()
+        return render_template('dashboard.html', params=params, posts= posts)
+
     if request.method=='POST':
-        pass
-        #Redirect to admin panel
+       username = request.form.get('uname')
+       userpass = request.form.get('upass')
+       if(username == params['admin_user'] and userpass == params['admin_password']):
+           session['user'] = username
+           posts = Posts.query.all()
+           return render_template('dashboard.html', params=params, posts= posts)
+       
+
     else:
-        return render_template('login.html', params=params)
+        return render_template('login.html', params=params) 
 
 # @app.route("/contact")
 # def contact():
