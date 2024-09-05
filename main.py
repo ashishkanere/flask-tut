@@ -71,6 +71,15 @@ def home():
 def about():
     return render_template('about.html', params=params)
 
+
+@app.route("/dashboard", methods=['GET', 'POST'])
+def dashboard():
+    if request.method=='POST':
+        pass
+        #Redirect to admin panel
+    else:
+        return render_template('login.html', params=params)
+
 # @app.route("/contact")
 # def contact():
 #     return render_template('contact.html')

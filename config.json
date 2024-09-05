@@ -12,7 +12,10 @@
         "gmail-user": "x",
         "passwd": "x",
         "about_text":"Text for about section of the page will be taken from here",
-        "no_of_posts":3
+        "no_of_posts":3,
+        "login_image":"home-bg.jpg",
+        "admin_user":"harry",
+        "admin_password":"1234"
 
 
     }
